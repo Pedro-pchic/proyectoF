@@ -1,8 +1,6 @@
 package com.miempresa.empleado.Entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
@@ -10,7 +8,6 @@ import lombok.Data;
 @Data
 public class Empleado {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String nombre;
@@ -42,7 +39,4 @@ public class Empleado {
 	}
 	
 	
-	
-	
 }
-
