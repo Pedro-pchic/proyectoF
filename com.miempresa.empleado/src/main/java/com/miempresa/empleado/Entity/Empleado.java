@@ -1,25 +1,21 @@
-
-package com.miempresa.cliente.Entity;
+package com.miempresa.empleado.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
-@Data
 @Entity
-public class Cliente {
+@Data
+public class Empleado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	
 	private String nombre;
-	private String correo;
-	private String telefono;
+	private String puesto;
+	private double salario;
 	public Long getId() {
 		return id;
 	}
@@ -32,18 +28,21 @@ public class Cliente {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getCorreo() {
-		return correo;
+	public String getPuesto() {
+		return puesto;
 	}
-	public void setCorreo(String correo) {
-		this.correo = correo;
+	public void setPuesto(String puesto) {
+		this.puesto = puesto;
 	}
-	public String getTelefono() {
-		return telefono;
+	public double getSalario() {
+		return salario;
 	}
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
+	public void setSalario(double salario) {
+		this.salario = salario;
 	}
+	
+	
 	
 	
 }
+

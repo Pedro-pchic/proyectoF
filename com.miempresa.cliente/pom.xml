@@ -24,14 +24,14 @@
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
-        <version>1.18.34</version>
-        <scope>provided</scope>
+        <optional>true</optional>
     </dependency>
 
     <!-- Spring Boot DevTools for live reload during development -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-devtools</artifactId>
+        <scope>runtime</scope>
         <optional>true</optional>
     </dependency>
 
@@ -39,7 +39,13 @@
     <dependency>
         <groupId>org.mariadb.jdbc</groupId>
         <artifactId>mariadb-java-client</artifactId>
-        <version>2.7.9</version>
+        <version>3.4.1</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
     </dependency>
 </dependencies>
 
