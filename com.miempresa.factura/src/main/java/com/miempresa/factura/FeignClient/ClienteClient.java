@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.miempresa.cliente.Entity.Cliente;
 
-@FeignClient(name ="cliente-service", url= "http://localhost:8082/clientes")
+@FeignClient(name = "cliente-service", url = "http://localhost:8082/clientes")
 public interface ClienteClient {
-	@GetMapping("/{id}")
-	Cliente obtenerId(@PathVariable("id") Long id);
+
+    @GetMapping("/{id}")
+    Cliente obtenerClientePorId(@PathVariable("id") Long id);
 }

@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.miempresa.producto.Entity.Producto;
 
-@FeignClient(name = "producto-service", url="http://localhost:8084/productos")
+@FeignClient(name = "producto-service", url = "http://localhost:8084/productos")
 public interface ProductoClient {
-	@GetMapping("/{id}")
-	Producto obtenerId(@PathVariable("id")Long id);
+
+    @GetMapping("/{id}")
+    Producto obtenerProductoPorId(@PathVariable("id") Long id);
 }
