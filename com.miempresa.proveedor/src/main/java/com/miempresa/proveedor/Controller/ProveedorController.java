@@ -16,32 +16,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.miempresa.proveedor.Entity.Proveedor;
-import com.miempresa.proveedor.Service.IProveedorService;
+import com.miempresa.proveedor.ServiceProveedor.ProveedorService;
+
 @RestController
-@RequestMapping("/proveedor")
+@RequestMapping("/api/proveedor")
 public class ProveedorController {
 	@Autowired
-	private IProveedorService proveedorService;
+	private ProveedorService proveedorService;
 	
-	@GetMapping
-	public List<Proveedor> listaProveedor(){
-		return proveedorService.getProveedro();
+	
+	@PostMapping("/save")
+	public ResponseEntity<Proveedor> save(@RequestBody Proveedor proveedor){
+		return ResponseEntity.ok(proveedorService.save(proveedor));
 	}
 	
-	@GetMapping("/{id}")
-	public ResponseEntity<Proveedor> obtenerId(@PathVariable Long id){
-			Optional<Proveedor> proveedor = proveedorService.getProveedorId(id);
+	@GetMapping("/lista")
+	public ResponseEntity<List<Proveedor>> findAll(){
+		return ResponseEntity.ok(proveedorService.findAll());
+	}
+	
+	@GetMapping("obtenerId/{id}")
+	public ResponseEntity<Proveedor> findById(@PathVariable Long id){
+			Optional<Proveedor> proveedor = proveedorService.findById(id);
 			return proveedor.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
 	}
 	
-	@PostMapping
-	public Proveedor crearProveedor(@RequestBody Proveedor proveedor) { 
-		return proveedorService.postProveedor(proveedor);
-	}
-	
-	@PutMapping("/{id}")
-	public ResponseEntity<Proveedor> actualizarProveedor(@PathVariable Long id,@RequestBody Proveedor detalleproveedor){
-		Proveedor proveedorActualizado = proveedorService.putProveedor(id, detalleproveedor);
+	@PutMapping("actualizar/{id}")
+	public ResponseEntity<Proveedor> update(@PathVariable Long id,@RequestBody Proveedor detalleproveedor){
+		Proveedor proveedorActualizado = proveedorService.update(id, detalleproveedor);
 		if( proveedorActualizado != null) {
 			return ResponseEntity.ok(proveedorActualizado);
 		}else {
@@ -50,9 +52,9 @@ public class ProveedorController {
 	}
 	
 	
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> eliminarProveedor(@PathVariable Long id){
-		proveedorService.deleteProveedor(id);
+	@DeleteMapping("eliminar/{id}")
+	public ResponseEntity<Void> deleteById(@PathVariable Long id){
+		proveedorService.deleteById(id);
 		return ResponseEntity.noContent().build();
 	
 	}

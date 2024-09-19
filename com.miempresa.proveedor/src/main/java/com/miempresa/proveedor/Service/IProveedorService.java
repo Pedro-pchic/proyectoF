@@ -6,9 +6,9 @@ import java.util.List;
 import com.miempresa.proveedor.Entity.Proveedor;
 public interface IProveedorService {
 	
-	Proveedor postProveedor(Proveedor proveedor);
-	List<Proveedor> getProveedro();
-	Optional<Proveedor> getProveedorId(Long id);
-	Proveedor putProveedor(Long id, Proveedor proveedor);
-	void deleteProveedor(Long id);
+	Proveedor save(Proveedor proveedor);
+	List<Proveedor> findAll();
+	Optional<Proveedor> findById(Long id);
+	Proveedor update(Long id, Proveedor proveedor);
+	void deleteById(Long id);
 }

@@ -8,4 +8,6 @@ import com.miempresa.factura.entity.Factura;
 @Repository
 public interface FacturaRepository extends JpaRepository<Factura, Long>{
 
+
+
 }

@@ -1,6 +1,0 @@
-com/miempresa/cliente/IClienteService/IClienteService.class
-com/miempresa/cliente/Reposity/ClienteResposity.class
-com/miempresa/cliente/ClienteService/ClienteService.class
-com/miempresa/cliente/MicroservicioAplication.class
-com/miempresa/cliente/Controller/ClienteController.class
-com/miempresa/cliente/Entity/Cliente.class

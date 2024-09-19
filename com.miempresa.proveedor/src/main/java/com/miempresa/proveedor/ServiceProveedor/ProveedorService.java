@@ -18,22 +18,23 @@ public class ProveedorService implements IProveedorService  {
 	
 	
 	@Override
-	public Proveedor postProveedor(Proveedor proveedor) {
-			return proveedorRepository.save(proveedor);
+	public Proveedor save(Proveedor proveedor) {
+			Proveedor newProveedor = proveedorRepository.save(proveedor);
+			return newProveedor;
 	}
 
 	@Override
-	public List<Proveedor> getProveedro() {
+	public List<Proveedor> findAll() {
 		return proveedorRepository.findAll();
 	}
 
 	@Override
-	public Optional<Proveedor> getProveedorId(Long id) {
+	public Optional<Proveedor> findById(Long id) {
 		return proveedorRepository.findById(id);
 	}
 
 	@Override
-	public Proveedor putProveedor(Long id, Proveedor detallesproveedor) {
+	public Proveedor update(Long id, Proveedor detallesproveedor) {
 		Optional<Proveedor> proveedorOptional = proveedorRepository.findById(id);
 		if(proveedorOptional.isPresent()) {
 			Proveedor proveedorExistente = proveedorOptional.get();
@@ -47,9 +48,11 @@ public class ProveedorService implements IProveedorService  {
 	}
 
 	@Override
-	public void deleteProveedor(Long id) {
+	public void deleteById(Long id) {
 		proveedorRepository.deleteById(id);
 		
 	}
+
+
 
 }

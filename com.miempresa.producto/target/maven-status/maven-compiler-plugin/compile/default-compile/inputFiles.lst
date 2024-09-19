@@ -1,0 +1,6 @@
+/home/pedris/Documents/workspace-spring-tool-suite-4-4.24.0.RELEASE/proyecto-padre/com.miempresa.producto/src/main/java/com/miempresa/producto/Controller/ProductoController.java
+/home/pedris/Documents/workspace-spring-tool-suite-4-4.24.0.RELEASE/proyecto-padre/com.miempresa.producto/src/main/java/com/miempresa/producto/Entity/Producto.java
+/home/pedris/Documents/workspace-spring-tool-suite-4-4.24.0.RELEASE/proyecto-padre/com.miempresa.producto/src/main/java/com/miempresa/producto/IProductoService/IProductoService.java
+/home/pedris/Documents/workspace-spring-tool-suite-4-4.24.0.RELEASE/proyecto-padre/com.miempresa.producto/src/main/java/com/miempresa/producto/MicroservicioApplication.java
+/home/pedris/Documents/workspace-spring-tool-suite-4-4.24.0.RELEASE/proyecto-padre/com.miempresa.producto/src/main/java/com/miempresa/producto/ProductoService/ProductoService.java
+/home/pedris/Documents/workspace-spring-tool-suite-4-4.24.0.RELEASE/proyecto-padre/com.miempresa.producto/src/main/java/com/miempresa/producto/Repository/ProductoRepository.java
