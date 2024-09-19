@@ -18,29 +18,30 @@ import org.springframework.web.bind.annotation.RestController;
 import com.miempresa.cliente.Entity.Cliente;
 import com.miempresa.cliente.IClienteService.IClienteService;
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("/api/clientes")
 public class ClienteController {
 	@Autowired
 	private IClienteService clienteService;
 	//lista Cliente
-	@GetMapping
-	public List<Cliente> listaCliente(){
-		return clienteService.getCliente();
+	@GetMapping("/lista")
+	public List<Cliente> findAll(){
+		return clienteService.findAll();
 	}
 	@GetMapping("/{id}")
-	public ResponseEntity<Cliente> obtenerId(@PathVariable Long id){
-		Optional<Cliente> cliente = clienteService.getClienteId(id);
+	public ResponseEntity<Cliente> findById(@PathVariable Long id){
+		Optional<Cliente> cliente = clienteService.findById(id);
 		return cliente.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
 	}
 	
-	@PostMapping
-	public Cliente crearCliente(@RequestBody Cliente cliente) {
-		return clienteService.postCliente(cliente);
+	@PostMapping("/save")
+	public ResponseEntity<Cliente> crearCliente(@RequestBody Cliente cliente) {
+		Cliente nuevocliente = clienteService.save(cliente);
+		return ResponseEntity.ok(nuevocliente);
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Cliente> actualizarCliente(@PathVariable Long id, @RequestBody Cliente detallesCliente){
-		Cliente clienteActualizado = clienteService.putCliente(id, detallesCliente);
+	public ResponseEntity<Cliente> update(@PathVariable Long id, @RequestBody Cliente detallesCliente){
+		Cliente clienteActualizado = clienteService.update(id, detallesCliente);
 		if( clienteActualizado != null) {
 			return ResponseEntity.ok(clienteActualizado);
 		}else {
@@ -49,8 +50,8 @@ public class ClienteController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> eliminarCliente(@PathVariable Long id){
-		clienteService.deleteCliente(id);
+	public ResponseEntity<Void> deleteByI(@PathVariable Long id){
+		clienteService.deleteById(id);
 		return ResponseEntity.noContent().build();
 	}
 	

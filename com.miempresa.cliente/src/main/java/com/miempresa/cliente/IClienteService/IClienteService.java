@@ -6,14 +6,14 @@ import java.util.Optional;
 
 public interface IClienteService {
 	//crear cliente 
-	Cliente postCliente(Cliente cliente);
+	Cliente save(Cliente cliente);
 	//obtener todo los clientes 
-	List<Cliente> getCliente();
+	List<Cliente> findAll();
 	//obtener clients por id
-	Optional<Cliente> getClienteId(Long id);
+	Optional<Cliente> findById(Long id);
 	//actualizar cliente 
-	Cliente putCliente(Long id, Cliente cliente);
+	Cliente update(Long id, Cliente cliente);
 	//eliminar clientes por Id
-	void deleteCliente(Long id);
+	void deleteById(Long id);
 	
 }

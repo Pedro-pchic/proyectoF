@@ -14,30 +14,32 @@ import java.util.Optional;
 public class ClienteService implements IClienteService{
 	@Autowired //inveccion de pendencia de la inferca de clienteResposity
 	private ClienteResposity clienteRepository;
-		//crear cliente
+
 	@Override
-	public Cliente postCliente(Cliente cliente) {
-		return clienteRepository.save(cliente);
+	public Cliente save(Cliente cliente) {
+		Cliente newCliente = clienteRepository.save(cliente);
+		return newCliente;
 	}
-		//obtener clientes 
+
 	@Override
-	public List<Cliente> getCliente() {
+	public List<Cliente> findAll() {
+		
 		return clienteRepository.findAll();
 	}
-		//obtener clientes por Id
+
 	@Override
-	public Optional<Cliente> getClienteId(Long id) {
+	public Optional<Cliente> findById(Long id) {
 		return clienteRepository.findById(id);
 	}
-		//actualizar clientes existentes 
+
 	@Override
-	public Cliente putCliente(Long id, Cliente detallesCliente){
+	public Cliente update(Long id, Cliente detallescliente) {
 		Optional<Cliente> clienteOptional = clienteRepository.findById(id);
 		if (clienteOptional.isPresent()) {
 			Cliente clienteExistente = clienteOptional.get();
-			clienteExistente.setNombre(detallesCliente.getNombre());
-			clienteExistente.setCorreo(detallesCliente.getCorreo());
-			clienteExistente.setTelefono(detallesCliente.getTelefono());
+			clienteExistente.setNombre(detallescliente.getNombre());
+			clienteExistente.setCorreo(detallescliente.getCorreo());
+			clienteExistente.setTelefono(detallescliente.getTelefono());
 			return clienteRepository.save(clienteExistente);
 		}else {
 			return null; 
@@ -45,9 +47,8 @@ public class ClienteService implements IClienteService{
 	}
 
 	@Override
-	public void deleteCliente(Long id) {
-		clienteRepository.deleteById(id);
+	public void deleteById(Long id) {
+		 clienteRepository.deleteById(id);
 	}
-	
 	
 }
