@@ -27,7 +27,8 @@ public class ProveedorController {
 	
 	@PostMapping("/save")
 	public ResponseEntity<Proveedor> save(@RequestBody Proveedor proveedor){
-		return ResponseEntity.ok(proveedorService.save(proveedor));
+		Proveedor nuevoproveedor = proveedorService.save(proveedor);
+		return ResponseEntity.ok(nuevoproveedor);
 	}
 	
 	@GetMapping("/lista")
