@@ -71,12 +71,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-json</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>com.miempresa.cliente</groupId>
-            <artifactId>com.miempresa.cliente</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+        
     </dependencies>
 
     <build>
@@ -85,8 +80,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>3.3.3</version> <!-- Agrega la versión del plugin -->
+                <version>3.3.3</version>
             </plugin>
         </plugins>
     </build>
 </project>
+
+        
