@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -11,19 +11,7 @@
 
     <groupId>com.miempresa.factura</groupId>
     <artifactId>factura</artifactId>
-
-    <dependencyManagement>
-        <dependencies>
-            <!-- Spring Cloud Dependency Management -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR12</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>
         <!-- Spring Boot Web Starter -->
@@ -32,16 +20,22 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- OpenFeign for consuming other microservices -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
         <!-- Spring Boot JPA Starter for database interactions -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- MariaDB JDBC Driver -->
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+        </dependency>
+
+        <!-- Spring Boot Actuator for monitoring -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
         <!-- Lombok for reducing boilerplate code -->
@@ -59,40 +53,51 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- MariaDB JDBC Driver -->
-        <dependency>
-            <groupId>org.mariadb.jdbc</groupId>
-            <artifactId>mariadb-java-client</artifactId>
-            <version>3.4.1</version>
-        </dependency>
-
-        <!-- Spring Boot Test Starter -->
+        <!-- Spring Boot Test for testing functionalities -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        
-        <!-- Dependency for the Producto microservice -->
+
+        <!-- Dependencia del microservicio de productos -->
         <dependency>
             <groupId>com.miempresa.producto</groupId>
-            <artifactId>com.miempresa.producto</artifactId>
+            <artifactId>producto</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        
-        <!-- Dependency for the Cliente microservice -->
+
+        <!-- Dependencia del microservicio de clientes -->
         <dependency>
             <groupId>com.miempresa.cliente</groupId>
-            <artifactId>com.miempresa.cliente</artifactId>
+            <artifactId>cliente</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        
-        <!-- Spring Boot Configuration Processor for @ConfigurationProperties -->
+
+        <!-- Spring Cloud Starter OpenFeign para la comunicación entre microservicios -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!-- Spring Boot JSON handling (opcional, pero útil para operaciones JSON avanzadas) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
+            <artifactId>spring-boot-starter-json</artifactId>
         </dependency>
+
     </dependencies>
 
+    <build>
+        <plugins>
+            <!-- Plugin para Spring Boot -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.3.3</version> <!-- Versión especificada -->
+            </plugin>
+        </plugins>
+    </build>
 </project>
+
+

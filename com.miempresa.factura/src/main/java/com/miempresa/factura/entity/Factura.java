@@ -22,6 +22,8 @@ public class Factura {
 	
 	private Date fecha;
 	
+	private double total;
+	
 	
 
 	public Long getId() {
@@ -62,6 +64,14 @@ public class Factura {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
 	}
 	
 	
